@@ -4,14 +4,8 @@ import { Progress } from "@/components/ui/progress";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-premium-accent/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-premium-primary/20 rounded-full blur-3xl"></div>
-      </div>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="skills" className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +16,7 @@ export function SkillsSection() {
           <h2 className="text-5xl font-black mb-6">
             My <span className="gradient-text">Skills</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             A comprehensive toolkit of technologies and frameworks I use to bring ideas to life
           </p>
         </motion.div>
@@ -38,7 +32,7 @@ export function SkillsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="premium-card p-8 rounded-xl hover:scale-105 transition-all duration-300 floating-3d"
+                className="bg-gray-800/50 p-8 rounded-xl card-hover border border-gray-700 backdrop-blur-sm"
               >
                 <div className={`${skillCategory.bgColor} w-16 h-16 rounded-lg flex items-center justify-center mb-6`}>
                   <IconComponent className={`${skillCategory.color} w-8 h-8`} />
@@ -57,21 +51,12 @@ export function SkillsSection() {
                     >
                       <div className="flex justify-between mb-2">
                         <span className="font-medium">{skill.name}</span>
-                        <span className="text-premium-primary font-bold">{skill.level}%</span>
+                        <span className="text-gray-400">{skill.level}%</span>
                       </div>
-                      <div className="relative">
-                        <Progress 
-                          value={skill.level} 
-                          className="h-3 premium-card"
-                        />
-                        <motion.div 
-                          className="absolute top-0 left-0 h-full bg-gradient-to-r from-premium-primary to-premium-secondary rounded-full"
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1.5, delay: (index * 0.2) + (skillIndex * 0.1) }}
-                          viewport={{ once: true }}
-                        />
-                      </div>
+                      <Progress 
+                        value={skill.level} 
+                        className="h-2 bg-gray-700"
+                      />
                     </motion.div>
                   ))}
                 </div>
@@ -102,10 +87,10 @@ export function SkillsSection() {
               key={iconClass}
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 0.6, scale: 1 }}
-              whileHover={{ opacity: 1, scale: 1.1 }}
+              whileHover={{ opacity: 1, scale: 1.1, color: "#F59E0B" }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="text-4xl hover:text-premium-primary transition-all cursor-pointer"
+              className="text-4xl hover:text-[#F59E0B] transition-all cursor-pointer"
             >
               <i className={iconClass}></i>
             </motion.div>

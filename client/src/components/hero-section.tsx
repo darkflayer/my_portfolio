@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Mail, MapPin, Phone, Code, Sparkles, Zap } from "lucide-react";
+import { Download, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { personalInfo } from "@/lib/constants";
 
@@ -12,191 +12,132 @@ export function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 morphing-bg">
-      {/* 3D Floating Elements */}
-      <motion.div
-        className="absolute top-20 left-10 w-20 h-20 floating-3d"
-        animate={{ 
-          y: [0, -30, 0],
-          rotateX: [0, 360, 0],
-          rotateY: [0, 180, 0]
-        }}
-        transition={{ 
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <div className="w-full h-full premium-card flex items-center justify-center">
-          <Code className="w-8 h-8 text-premium-primary" />
-        </div>
-      </motion.div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90" />
       
+      {/* Floating Code Elements */}
       <motion.div
-        className="absolute top-1/3 right-16 w-16 h-16 floating-3d"
         animate={{ 
-          y: [0, 25, 0],
-          rotateZ: [0, 180, 360],
-          scale: [1, 1.2, 1]
+          y: [0, -20, 0],
+          rotate: [0, 5, 0]
         }}
         transition={{ 
           duration: 6,
           repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
+          ease: "easeInOut"
         }}
+        className="absolute top-1/4 left-10 text-6xl text-[#F59E0B]/20"
       >
-        <div className="w-full h-full premium-card flex items-center justify-center">
-          <Sparkles className="w-6 h-6 text-premium-secondary" />
-        </div>
+        💻
       </motion.div>
       
       <motion.div
-        className="absolute bottom-1/4 left-20 w-12 h-12 floating-3d"
         animate={{ 
-          y: [0, -15, 0],
-          rotateY: [0, -180, 0],
-          rotateX: [0, 90, 0]
+          y: [0, 20, 0],
+          rotate: [0, -5, 0]
         }}
         transition={{ 
-          duration: 7,
+          duration: 8,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2.5
+          delay: 2
         }}
+        className="absolute bottom-1/4 right-10 text-4xl text-[#3B82F6]/20"
       >
-        <div className="w-full h-full premium-card flex items-center justify-center">
-          <Zap className="w-5 h-5 text-premium-accent" />
-        </div>
+        🚀
       </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Enhanced Profile Image with 3D Effect */}
+        {/* Profile Image */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-8 relative"
+          className="mb-8"
         >
-          <div className="relative mx-auto w-40 h-40">
-            <motion.div 
-              className="w-full h-full premium-card rounded-full p-1 pulse-ring"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
-                src={personalInfo.image}
-                alt={`${personalInfo.name} - Professional Developer Portrait`}
-                className="w-full h-full rounded-full object-cover"
-              />
-            </motion.div>
-            
-            {/* Orbiting Elements */}
-            <motion.div
-              className="absolute -top-2 -right-2 w-8 h-8 premium-card rounded-full flex items-center justify-center"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            >
-              <Code className="w-4 h-4 text-premium-primary" />
-            </motion.div>
-          </div>
-          
+          <img
+            src={personalInfo.image}
+            alt={`${personalInfo.name} - Professional Developer Portrait`}
+            className="w-40 h-40 rounded-full mx-auto object-cover border-4 border-[#F59E0B] shadow-2xl"
+          />
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="mt-4 inline-flex items-center px-4 py-2 premium-card rounded-full text-premium-accent text-sm font-medium"
+            className="mt-4 inline-flex items-center px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-400 text-sm"
           >
-            <div className="w-2 h-2 bg-premium-accent rounded-full mr-2 pulse-ring" />
+            <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
             {personalInfo.status}
           </motion.div>
         </motion.div>
 
-        {/* Enhanced Main Heading with Shimmer Effect */}
+        {/* Main Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-8xl font-black mb-6 leading-tight"
+          className="text-6xl md:text-8xl font-black mb-6"
         >
-          <span className="text-shimmer">HELLO!</span> <br />
-          I'm a <span className="gradient-text text-shimmer">Software</span><br />
-          <span className="gradient-text text-shimmer">Developer</span> based<br />
-          in <span className="text-premium-accent">Haridwar</span>
+          HELLO! <br />
+          I'm a <span className="gradient-text">Software</span><br />
+          <span className="gradient-text">Developer</span> based<br />
+          in Haridwar
         </motion.h1>
 
-        {/* Enhanced Subtitle */}
+        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed font-medium"
+          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
         >
           {personalInfo.subtitle}
         </motion.p>
 
-        {/* Enhanced Action Buttons */}
+        {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
         >
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Button
+            onClick={() => scrollToSection("contact")}
+            className="bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-black font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+            size="lg"
           >
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-premium-primary hover:bg-premium-primary/90 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg hover:shadow-xl premium-card border-0"
-              size="lg"
-            >
-              HIRE ME
-            </Button>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            HIRE ME
+          </Button>
+          <Button
+            onClick={() => scrollToSection("projects")}
+            variant="outline"
+            className="border-2 border-white hover:bg-white hover:text-black font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105"
+            size="lg"
           >
-            <Button
-              onClick={() => scrollToSection("projects")}
-              variant="outline"
-              className="border-2 border-premium-secondary text-premium-secondary hover:bg-premium-secondary hover:text-white font-bold py-4 px-8 rounded-full transition-all premium-card"
-              size="lg"
-            >
-              MY WORKS
-            </Button>
-          </motion.div>
+            MY WORKS
+          </Button>
         </motion.div>
 
-        {/* Enhanced Contact Info */}
+        {/* Contact Info */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col md:flex-row justify-center items-center gap-6 text-muted-foreground"
+          className="flex flex-col md:flex-row justify-center items-center gap-6 text-gray-400"
         >
-          <motion.div 
-            className="flex items-center gap-2 premium-card px-4 py-2 rounded-full"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Mail size={16} className="text-premium-primary" />
+          <div className="flex items-center gap-2">
+            <Mail size={16} />
             <span>{personalInfo.email}</span>
-          </motion.div>
-          <motion.div 
-            className="flex items-center gap-2 premium-card px-4 py-2 rounded-full"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Phone size={16} className="text-premium-secondary" />
+          </div>
+          <div className="flex items-center gap-2">
+            <Phone size={16} />
             <span>{personalInfo.phone}</span>
-          </motion.div>
-          <motion.div 
-            className="flex items-center gap-2 premium-card px-4 py-2 rounded-full"
-            whileHover={{ scale: 1.05 }}
-          >
-            <MapPin size={16} className="text-premium-accent" />
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin size={16} />
             <span>{personalInfo.location}</span>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

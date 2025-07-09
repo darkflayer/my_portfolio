@@ -3,7 +3,6 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigationItems, personalInfo } from "@/lib/constants";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,7 +31,7 @@ export function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-nav shadow-2xl" : "bg-transparent"
+        isScrolled ? "floating-nav shadow-2xl" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,29 +56,33 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative py-2 px-4 text-sm font-medium transition-all duration-300 rounded-full ${
+                className={`relative py-2 px-1 text-sm font-medium transition-colors duration-200 ${
                   activeSection === item.id
-                    ? "text-premium-primary bg-premium-primary/10 backdrop-blur-sm"
-                    : "text-foreground hover:text-premium-primary hover:bg-premium-primary/5"
+                    ? "text-[#F59E0B]"
+                    : "text-white hover:text-[#F59E0B]"
                 }`}
               >
                 {item.label}
-
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F59E0B]"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </motion.button>
             ))}
           </div>
 
-          {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-foreground hover:text-premium-primary transition-colors"
-              >
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white hover:text-[#F59E0B] transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
       </div>
@@ -91,7 +94,7 @@ export function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-nav border-t border-border/20"
+            className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-800"
           >
             <div className="px-4 py-2 space-y-2">
               {navigationItems.map((item, index) => (
@@ -103,8 +106,8 @@ export function Navigation() {
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full text-left py-2 px-4 rounded-lg transition-colors ${
                     activeSection === item.id
-                      ? "text-premium-primary bg-premium-primary/10"
-                      : "text-foreground hover:text-premium-primary hover:bg-premium-primary/5"
+                      ? "text-[#F59E0B] bg-[#F59E0B]/10"
+                      : "text-white hover:text-[#F59E0B] hover:bg-white/5"
                   }`}
                 >
                   {item.label}
