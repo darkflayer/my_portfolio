@@ -6,8 +6,14 @@ import { projects } from "@/lib/constants";
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-32 left-32 w-96 h-96 bg-premium-secondary/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 right-32 w-72 h-72 bg-premium-primary/20 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,7 +24,7 @@ export function ProjectsSection() {
           <h2 className="text-5xl font-black mb-6">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A showcase of my best work, featuring live applications and innovative solutions
           </p>
         </motion.div>
@@ -31,7 +37,7 @@ export function ProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-gray-800/50 rounded-2xl overflow-hidden card-hover border border-gray-700 backdrop-blur-sm group"
+              className="premium-card rounded-2xl overflow-hidden group hover:scale-105 transition-all duration-300 floating-3d"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -44,7 +50,7 @@ export function ProjectsSection() {
               
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   {project.description}
                 </p>
                 
@@ -53,7 +59,7 @@ export function ProjectsSection() {
                     <Badge
                       key={tech}
                       variant="secondary"
-                      className="bg-[#F59E0B]/10 text-[#F59E0B] border-[#F59E0B]/20 hover:bg-[#F59E0B]/20"
+                      className="bg-premium-primary/10 text-premium-primary border-premium-primary/20 hover:bg-premium-primary/20"
                     >
                       {tech}
                     </Badge>
@@ -63,7 +69,7 @@ export function ProjectsSection() {
                 <div className="flex gap-4">
                   <Button
                     asChild
-                    className="bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-black font-bold transition-all transform hover:scale-105"
+                    className="bg-premium-primary hover:bg-premium-primary/90 text-white font-bold transition-all transform hover:scale-105"
                   >
                     <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4 mr-2" />
@@ -74,7 +80,7 @@ export function ProjectsSection() {
                   <Button
                     variant="outline"
                     asChild
-                    className="border-gray-500 hover:border-white hover:bg-white/5 transition-all transform hover:scale-105"
+                    className="border-premium-secondary text-premium-secondary hover:border-premium-secondary hover:bg-premium-secondary/10 transition-all transform hover:scale-105"
                   >
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="w-4 h-4 mr-2" />
@@ -96,7 +102,7 @@ export function ProjectsSection() {
         >
           <Button
             variant="ghost"
-            className="text-[#F59E0B] hover:text-[#F59E0B]/80 hover:bg-[#F59E0B]/10 text-lg font-semibold"
+            className="text-premium-primary hover:text-premium-primary/80 hover:bg-premium-primary/10 text-lg font-semibold"
           >
             View All Projects →
           </Button>
