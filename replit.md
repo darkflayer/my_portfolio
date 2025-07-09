@@ -48,7 +48,7 @@ Uses Drizzle ORM with PostgreSQL containing two main tables:
 
 ### Storage Layer
 - **Production**: PostgreSQL with Drizzle ORM and Neon Database serverless driver
-- **Development**: In-memory storage implementation for development/testing
+- **Development**: PostgreSQL database implementation with DatabaseStorage class (replaced MemStorage)
 
 ## Data Flow
 
