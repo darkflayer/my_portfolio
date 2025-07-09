@@ -1,10 +1,34 @@
+import 'dotenv/config';
 import express, { type Request, Response, NextFunction } from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
+// ES module equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
+
+// CORS configuration for production
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Serve static files from the public directory
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -56,15 +80,14 @@ app.use((req, res, next) => {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = 5000;
+  // Use environment variables for port and host, with fallbacks
+  const port = process.env.PORT || 5000;
+  const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1';
+  
   server.listen({
     port,
-    host: "0.0.0.0",
-    reusePort: true,
+    host
   }, () => {
-    log(`serving on port ${port}`);
+    log(`serving on port ${port} in ${process.env.NODE_ENV || 'development'} mode`);
   });
 })();

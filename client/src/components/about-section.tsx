@@ -32,9 +32,7 @@ export function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                With experience in full-stack development, mobile applications, and emerging technologies, 
-                I bring a comprehensive approach to every project. I believe in writing clean, efficient 
-                code and creating user experiences that are both functional and delightful.
+                With hands-on experience in full-stack development , real-time analytics, AI integration, and modern DevOps practices, I bring a holistic approach to every project—whether it’s building secure e-commerce platforms, architecting data-driven dashboards, or deploying end-to-end applications to the cloud. I believe in writing clean, efficient code and crafting user experiences that are intuitive and delightful.
               </motion.p>
               
               <motion.p
@@ -43,9 +41,7 @@ export function AboutSection() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
-                projects, or sharing knowledge with the developer community. I'm always eager to take on 
-                new challenges and grow both personally and professionally.
+                When I’m not coding, you’ll find me traveling to new places, riding my bike through the hills, singing, or diving into online games. I also enjoy exploring emerging technologies, tackling algorithmic challenges, and sharing insights with the developer community. I’m always eager to take on new adventures, both in life and in tech, and to keep growing personally and professionally.
               </motion.p>
             </div>
 
@@ -88,7 +84,7 @@ export function AboutSection() {
               viewport={{ once: true }}
               className="absolute -bottom-6 -right-6 bg-[#F59E0B] text-black p-6 rounded-xl font-bold shadow-xl"
             >
-              <div className="text-3xl font-black">4+</div>
+              <div className="text-3xl font-black">1+</div>
               <div className="text-sm">Years Experience</div>
             </motion.div>
           </motion.div>

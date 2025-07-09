@@ -71,30 +71,61 @@ export function SkillsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center justify-items-center opacity-60"
+          className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center justify-items-center"
         >
-          {[
-            "fab fa-react",
-            "fab fa-node-js", 
-            "fab fa-python",
-            "fab fa-java",
-            "fab fa-js-square",
-            "fab fa-html5",
-            "fab fa-css3-alt",
-            "fab fa-git-alt"
-          ].map((iconClass, index) => (
+          {(() => {
+            const iconData = [
+              { class: "fab fa-react", color: "#61DAFB", name: "React" },
+              { class: "fab fa-node-js", color: "#3C873A", name: "Node.js" },
+              { class: "fab fa-python", color: "#3776AB", name: "Python" },
+              { class: "fab fa-java", color: "#007396", name: "Java" },
+              { class: "fab fa-js-square", color: "#F7DF1E", name: "JavaScript" },
+              { class: "fab fa-html5", color: "#E34F26", name: "HTML5" },
+              { class: "fab fa-css3-alt", color: "#1572B6", name: "CSS3" },
+              { class: "fab fa-bootstrap", color: "#7952B3", name: "Bootstrap" },
+              { class: "fab fa-git-alt", color: "#F05032", name: "Git" },
+              { class: "fab fa-docker", color: "#2496ED", name: "Docker" },
+              { class: "fas fa-database", color: "#4DB33D", name: "Database" },
+              { class: "fas fa-cloud", color: "#00C3E2", name: "Cloud" },
+              { class: "fas fa-fire", color: "#FFCA28", name: "Firebase" },
+              { class: "fas fa-paper-plane", color: "#FF6F00", name: "API" },
+              { class: "fas fa-code-branch", color: "#6e5494", name: "REST" },
+              { class: "fab fa-aws", color: "#FF9900", name: "AWS" },
+              { class: "fas fa-plug", color: "#4E8EE5", name: "WebSocket" }
+            ];
+            
+            return iconData.map((icon, index) => (
             <motion.div
-              key={iconClass}
+                key={icon.class}
               initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 0.6, scale: 1 }}
-              whileHover={{ opacity: 1, scale: 1.1, color: "#F59E0B" }}
+                whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="text-4xl hover:text-[#F59E0B] transition-all cursor-pointer"
-            >
-              <i className={iconClass}></i>
+                className="group cursor-pointer"
+              >
+                <div 
+                  className="w-16 h-16 rounded-lg flex items-center justify-center transition-all duration-150 group-hover:bg-gradient-to-br group-hover:border-opacity-50"
+                  style={{ 
+                    backgroundColor: `${icon.color}10`,
+                    border: `1px solid ${icon.color}20`,
+                    '--tw-gradient-from': `${icon.color}20`,
+                    '--tw-gradient-to': `${icon.color}05`,
+                    '--tw-gradient-stops': `var(--tw-gradient-from), var(--tw-gradient-to)`,
+                  } as React.CSSProperties}
+                >
+                  <i 
+                    className={`${icon.class} text-2xl transition-transform duration-150 group-hover:scale-125`}
+                    style={{ color: icon.color }}
+                  ></i>
+                </div>
+                <div className="text-center mt-2">
+                  <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-150">
+                    {icon.name}
+                  </span>
+                </div>
             </motion.div>
-          ))}
+            ));
+          })()}
         </motion.div>
       </div>
     </section>

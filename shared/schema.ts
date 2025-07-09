@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, index } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -16,7 +16,10 @@ export const contacts = pgTable("contacts", {
   subject: text("subject").notNull(),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
-});
+}, (table) => ({
+  firstNameIdx: index("first_name_idx").on(table.firstName),
+  emailIdx: index("email_idx").on(table.email),
+}));
 
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,

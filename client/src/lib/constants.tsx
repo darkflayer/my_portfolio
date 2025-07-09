@@ -9,7 +9,7 @@ export const personalInfo = {
   location: "Haridwar, Uttarakhand, India",
   status: "Open to work",
   about: "I am a passionate Computer Science Engineering student in my final year, dedicated to creating innovative digital solutions that make a real impact. My journey in technology has been driven by curiosity and a desire to solve complex problems through code.",
-  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=300"
+  image: "https://res.cloudinary.com/de7mvqfxv/image/upload/v1752090595/1000001925_ps6pks.jpg"
 };
 
 export const skills = [
@@ -20,9 +20,10 @@ export const skills = [
     bgColor: "bg-[#F59E0B]/10",
     skills: [
       { name: "React.js", level: 90 },
-      { name: "JavaScript/TypeScript", level: 85 },
-      { name: "HTML/CSS", level: 95 },
-      { name: "Tailwind CSS", level: 88 }
+      { name: "JavaScript/Typescript", level: 90 },
+      { name: "HTML5/CSS3", level: 95 },
+      { name: "Bootstrap", level: 88 },
+      { name: "Tailwind CSS", level: 80 }
     ]
   },
   {
@@ -31,21 +32,38 @@ export const skills = [
     color: "text-[#3B82F6]",
     bgColor: "bg-[#3B82F6]/10",
     skills: [
-      { name: "Node.js", level: 80 },
+      { name: "Node.js", level: 90 },
+      { name: "Express.js", level: 88 },
+      { name: "Django", level: 85 },
       { name: "Python", level: 85 },
       { name: "Java", level: 75 },
-      { name: "Express.js", level: 82 }
+      { name: "REST APIs", level: 92 }
     ]
   },
   {
-    category: "Database & Tools",
+    category: "Databases & Cloud",
     icon: Code,
     color: "text-[#10B981]",
     bgColor: "bg-[#10B981]/10",
     skills: [
-      { name: "MongoDB", level: 80 },
-      { name: "MySQL", level: 75 },
-      { name: "Git/GitHub", level: 90 },
+      { name: "MongoDB / Atlas", level: 90 },
+      { name: "MySQL / SQLite", level: 80 },
+      { name: "PostgreSQL", level: 75 },
+      { name: "Firebase / Firestore", level: 70 },
+      { name: "Supabase", level: 68 },
+      { name: "Cloudinary", level: 88 }
+    ]
+  },
+  {
+    category: "Tools & DevOps",
+    icon: Code,
+    color: "text-[#8B5CF6]",
+    bgColor: "bg-[#8B5CF6]/10",
+    skills: [
+      { name: "Git / GitHub", level: 95 },
+      { name: "Postman", level: 90 },
+      { name: "Render / Netlify / Vercel", level: 85 },
+      { name: "Socket.IO / WebSockets", level: 82 },
       { name: "Docker", level: 70 }
     ]
   }
@@ -53,21 +71,30 @@ export const skills = [
 
 export const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment integration, and real-time inventory management.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveDemo: "#",
-    github: "#",
+    title: "Flip-Shop E-Commerce Platform",
+    description: "A full-stack e-commerce site with Razorpay payment integration, user authentication, admin dashboard with real-time analytics for users, products, sales, and low stock. Built with Node.js, Express, MongoDB Atlas, and Bootstrap, deployed on Render.",
+    image: "https://res.cloudinary.com/de7mvqfxv/image/upload/v1752078666/Screenshot_1321_udbght.png",
+    technologies: ["Node.js", "Express", "MongoDB Atlas", "Razorpay", "Bootstrap", "Render"],
+    liveDemo: "https://flip-shop.onrender.com/",
+    github: "https://github.com/darkflayer/flip-shop",
     featured: true
   },
   {
-    title: "Task Management App",
-    description: "A productivity mobile application built with React Native. Features include task organization, team collaboration, and progress tracking with beautiful animations.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    technologies: ["React Native", "Firebase", "Redux", "Expo"],
-    liveDemo: "#",
-    github: "#",
+    title: "Abhaya-News Portal",
+    description: "A dynamic news website built for a client during an internship, featuring an admin panel to upload news articles with images (stored on Cloudinary) and featured videos for the news channel. Developed with Node.js, Express, and MongoDB, using a static frontend and deployed on Render (backend) and Netlify (frontend).",
+    image: "https://res.cloudinary.com/de7mvqfxv/image/upload/v1752079232/Screenshot_1324_gpdlpq.png",
+    technologies: ["Node.js", "Express", "MongoDB", "Cloudinary", "Render", "Netlify"],
+    liveDemo: "https://abhaya-news.netlify.app/",
+    github: "https://github.com/darkflayer/abhaya-news-backend",
+    featured: true
+  },
+  {
+    title: "Real-Time Analytics Dashboard",
+    description: "A full-stack, real-time analytics platform showcasing advanced data pipelines: capturing high-volume events via REST API, processing with MongoDB Aggregation, and pushing live updates to a Chart.js dashboard using Socket.IO. Built to handle large data volumes and real-time communications efficiently.",
+    image: "https://res.cloudinary.com/de7mvqfxv/image/upload/v1752079802/Screenshot_1210_mb8hvr.png",
+    technologies: ["Node.js", "Express", "MongoDB", "Socket.IO", "Chart.js", "HTML5", "CSS3", "JavaScript"],
+    liveDemo: "https://github.com/darkflayer/real-time-analytics-dashboard.git",
+    github: "https://github.com/darkflayer/real-time-analytics-dashboard.git",
     featured: true
   },
   {
@@ -78,64 +105,56 @@ export const projects = [
     liveDemo: "#",
     github: "#",
     featured: true
-  },
-  {
-    title: "Blockchain Voting System",
-    description: "A secure digital voting platform built on blockchain technology. Ensures transparency, immutability, and voter privacy using smart contracts and cryptographic security.",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-    technologies: ["Solidity", "Web3.js", "Ethereum", "Truffle"],
-    liveDemo: "#",
-    github: "#",
-    featured: true
   }
 ];
 
 export const experiences = [
   {
+    title: "Full Stack Developer Intern",
+    company: "Farmicon (TIDE Incubator, IIT Roorkee)",
+    period: "June 2025 - August 2025",
+    description: "Working on-site at IIT Roorkee under the TIDE incubator, developing multiple full-stack projects from scratch for Farmicon. Contributing to end-to-end system design, implementation, and deployment while gaining hands-on experience with modern development stacks and industry practices.",
+    technologies: ["Node.js", "Express", "MongoDB", "React", "Django", "REST APIs", "Cloud Deployment"],
+    type: "internship"
+  }
+  ,
+  
+  {
+    title: "Full Stack Developer Intern",
+    company: "Creomind Innovations Pvt. Ltd.",
+    period: "April 2025 - May 2025",
+    description: "Delivered full-stack projects like the Abhaya-News portal, developing robust admin panels, integrating media storage with Cloudinary, and deploying applications on Render and Netlify. Focused on building scalable APIs and dynamic frontend interfaces while collaborating closely with the client's team.",
+    technologies: ["Node.js", "Express", "MongoDB", "Cloudinary", "Netlify", "Render"],
+    type: "internship"
+  },{
     title: "Software Development Intern",
     company: "Tech Innovations Ltd.",
     period: "June 2024 - August 2024",
     description: "Developed and maintained web applications using React and Node.js. Collaborated with senior developers to implement new features and optimize existing codebase for better performance.",
     technologies: ["React", "Node.js", "MongoDB"],
     type: "internship"
-  },
-  {
-    title: "Frontend Developer Intern",
-    company: "Digital Solutions Co.",
-    period: "January 2024 - May 2024",
-    description: "Focused on creating responsive and interactive user interfaces. Worked on UI/UX improvements and implemented modern design patterns to enhance user experience across multiple projects.",
-    technologies: ["HTML/CSS", "JavaScript", "Vue.js"],
-    type: "internship"
-  },
-  {
-    title: "Research Assistant",
-    company: "University Research Lab",
-    period: "September 2023 - December 2023",
-    description: "Assisted in machine learning research projects focusing on natural language processing. Contributed to data collection, model training, and performance evaluation of various ML algorithms.",
-    technologies: ["Python", "TensorFlow", "Pandas"],
-    type: "research"
   }
 ];
 
 export const socialLinks = [
   {
     name: "LinkedIn",
-    url: "#",
+    url: "https://www.linkedin.com/in/hemant-singh-b48815239/",
     icon: "fab fa-linkedin"
   },
   {
     name: "GitHub", 
-    url: "#",
+    url: "https://github.com/darkflayer",
     icon: "fab fa-github"
   },
   {
     name: "Twitter",
-    url: "#",
+    url: "https://x.com/HemantSingh7474",
     icon: "fab fa-twitter"
   },
   {
     name: "Instagram",
-    url: "#", 
+    url: "https://www.instagram.com/hemu_rautan/", 
     icon: "fab fa-instagram"
   }
 ];
@@ -146,5 +165,6 @@ export const navigationItems = [
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
+  { id: "education", label: "Education" },
   { id: "contact", label: "Contact" }
 ];

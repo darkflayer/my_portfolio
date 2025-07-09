@@ -57,7 +57,8 @@ export function ContactSection() {
 
   const handleDownloadResume = async () => {
     try {
-      const response = await fetch("/api/download-resume");
+      const apiBaseUrl = import.meta.env.VITE_API_URL || "";
+      const response = await fetch(`${apiBaseUrl}/api/download-resume`);
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");

@@ -87,6 +87,18 @@
     box-shadow: 0 20px 40px rgba(245, 158, 11, 0.1);
   }
   
+  .education-card-orange:hover {
+    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15);
+  }
+  
+  .education-card-blue:hover {
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+  }
+  
+  .education-card-green:hover {
+    box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
+  }
+  
   .skill-bar {
     transition: width 2s ease-in-out;
   }
